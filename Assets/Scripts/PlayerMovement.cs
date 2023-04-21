@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if (dashTime <= 0)
         {
             dashTime = startDashTime;
-            rb.velocity = Vector2.zero;
+            // rb.velocity = Vector2.zero;
             animator.SetBool("Right", false);
             animator.SetBool("Up", false);
             animator.SetBool("Left", false);

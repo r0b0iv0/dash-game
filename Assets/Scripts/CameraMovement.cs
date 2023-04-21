@@ -10,5 +10,6 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + 100, transform.position.y, transform.position.z), cameraSpeed * Time.deltaTime);
+        cameraSpeed += 0.0000000001f;
     }
 }
