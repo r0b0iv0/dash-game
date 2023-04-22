@@ -93,33 +93,28 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Up", true);
             rb.velocity = new Vector2(rb.velocity.x, dashPower);
-            dashed = true;
 
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             animator.SetBool("Down", true);
             rb.velocity = new Vector2(rb.velocity.x, -dashPower);
-            dashed = true;
 
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {   
-            animator.SetBool("Left", false);
             animator.SetBool("Right", true);
             rb.velocity = Vector2.right * dashPower;
-            dashed = true;
 
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {   
-            gameObject.GetComponent<CapsuleCollider2D>().size = new Vector2();
-            animator.SetBool("Right", false);
-            animator.SetBool("Left", true);
-            rb.velocity = Vector2.left * dashPower;
-            dashed = true;
+        // if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // {   
+        //     gameObject.GetComponent<CapsuleCollider2D>().size = new Vector2();
+        //     animator.SetBool("Right", false);
+        //     animator.SetBool("Left", true);
+        //     rb.velocity = Vector2.left * dashPower;
 
-        }
+        // }
     }
 
 
