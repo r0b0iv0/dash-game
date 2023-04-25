@@ -92,13 +92,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             animator.SetBool("Up", true);
-            rb.velocity = new Vector2(rb.velocity.x, dashPower);
+            rb.velocity = new Vector2(rb.velocity.x, (dashPower * 0.8f));
 
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             animator.SetBool("Down", true);
-            rb.velocity = new Vector2(rb.velocity.x, -dashPower);
+            rb.velocity = new Vector2(rb.velocity.x, (-dashPower * 0.8f));
 
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
