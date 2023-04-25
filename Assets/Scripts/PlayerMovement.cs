@@ -23,9 +23,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
     }
-    // Update is called once per frame
     void Update()
-    {    
+    {
         // mobile movement
         // if (Input.touches.Length > 0)
         // {
@@ -88,52 +87,35 @@ public class PlayerMovement : MonoBehaviour
         //         }
         //     }
         // }
-     if (dashed)
+
+        // keyboard movement
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            dashTime -= Time.deltaTime;
+            animator.SetBool("Up", true);
+            rb.velocity = new Vector2(rb.velocity.x, (dashPower * 0.8f));
+
         }
-        if (dashTime <= 0)
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            dashTime = startDashTime;
-            rb.velocity = Vector2.zero;
-            animator.SetBool("Right", false);
-            animator.SetBool("Up", false);
-            animator.SetBool("Left", false);
-            animator.SetBool("Down", false);
-            dashed = false;
+            animator.SetBool("Down", true);
+            rb.velocity = new Vector2(rb.velocity.x, (-dashPower * 0.8f));
+
         }
-        else
-        {
-            // keyboard movement
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                animator.SetBool("Up", true);
-                rb.velocity = Vector2.up * dashPower;
-                dashed = true;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {   
+            animator.SetBool("Right", true);
+            rb.velocity = Vector2.right * dashPower;
 
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                animator.SetBool("Down", true);
-                rb.velocity = Vector2.down * dashPower;
-                dashed = true;
-
-            }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                animator.SetBool("Right", true);
-                rb.velocity = Vector2.right * dashPower;
-                dashed = true;
-
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                animator.SetBool("Left", true);
-                rb.velocity = Vector2.left * dashPower;
-                dashed = true;
-
-            }
         }
+        // if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // {   
+        //     gameObject.GetComponent<CapsuleCollider2D>().size = new Vector2();
+        //     animator.SetBool("Right", false);
+        //     animator.SetBool("Left", true);
+        //     rb.velocity = Vector2.left * dashPower;
 
+        // }
     }
+
+
 }

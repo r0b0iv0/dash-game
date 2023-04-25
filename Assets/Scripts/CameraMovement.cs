@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float cameraSpeed = 0.1f;
+
+    [SerializeField] private GameObject player;
+    [SerializeField] private int depthOffSet = -10;
+    [SerializeField] private int xOffSet = 6;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + 100, transform.position.y, transform.position.z), cameraSpeed * Time.deltaTime);
+        transform.position = new Vector3(player.transform.position.x + xOffSet, 0, depthOffSet);
     }
 }
