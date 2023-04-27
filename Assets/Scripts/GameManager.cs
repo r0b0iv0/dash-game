@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "Score: " + scoreIncrement().ToString("N0");
+        scoreText.text = "Score: " + System.Math.Ceiling(scoreIncrement()).ToString("N0");
     }
 
     // public void CollectCoins()
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         this.GameOverScreen();
         ObstacleGeneration.DestroyObstacles();
         if (newHighScore != 0)
-        {
+        {   
             this.gameData.highScore = newHighScore;
             highScoreText.text = "High Score: " + gameData.highScore.ToString();
         }
