@@ -7,11 +7,10 @@ public class GameData
 {
     public int coinsTotal;
 
-    public bool[] skinsUnlocked;
+    public int highScore;
 
     public GameData() {
         this.coinsTotal = 0;
-        this.skinsUnlocked = new bool[5];
-        this.skinsUnlocked[0] = true;
+        this.highScore = 0;
     }
 }

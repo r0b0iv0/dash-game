@@ -6,7 +6,6 @@ public class Respawn : MonoBehaviour
 {
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject gameOverScreen;
     private Vector3 camPos;
     private Vector3 playerPos;
     private GameManager gm;
@@ -20,16 +19,11 @@ public class Respawn : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "DeadZone")
         {   
-            Time.timeScale = 0;
-            Debug.Log(Time.timeScale);
-            gameOverScreen.SetActive(true);
             gm.GameOver();
-            gm.Coins = 0;
-            ObstacleGeneration.DestroyObstacles();
         }
     }
 

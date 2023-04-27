@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8030522191658620524}
   m_Layer: 0
   m_Name: Coin_0
-  m_TagString: Coin
+  m_TagString: DeadZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8030522191658620522
 SpriteRenderer:
@@ -115,7 +115,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8030522191658620520}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c426b79f813344cc48a783509839685e, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
