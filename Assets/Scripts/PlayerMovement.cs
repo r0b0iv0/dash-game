@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private Touch touch;
     public int pixelForTouchToCount = 20;
     private bool fingerDown;
-    private bool dashed = false;
     public float dashPower = 10;
 
 
@@ -88,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         // }
 
         // keyboard movement
+        rb.velocity = new Vector2(rb.velocity.x + 0.00001f, rb.velocity.y);
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             rb.velocity = new Vector2(rb.velocity.x, (dashPower * 0.8f));

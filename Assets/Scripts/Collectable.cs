@@ -16,5 +16,9 @@ public class Collectable : MonoBehaviour
             Destroy(col.gameObject);
             // gm.CollectCoins();
         }
+        if(col.tag == "Point Increase") {
+            Destroy(col.gameObject);
+            gm.Score += 1;
+        }
     }
 }
