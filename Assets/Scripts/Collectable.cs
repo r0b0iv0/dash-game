@@ -14,7 +14,10 @@ public class Collectable : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if(col.tag == "Coin") {
             Destroy(col.gameObject);
-            gm.CollectCoins();
+        }
+        if(col.tag == "Point Increase") {
+            Destroy(col.gameObject);
+            gm.Score += 1;
         }
     }
 }

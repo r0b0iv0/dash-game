@@ -12,16 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private Touch touch;
     public int pixelForTouchToCount = 20;
     private bool fingerDown;
-    private bool dashed = false;
     public float dashPower = 10;
-    public float startDashTime = 0;
-    private float dashTime;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        dashTime = startDashTime;
+        rb.velocity = Vector2.right * dashPower;
+        animator.SetBool("Right", true);
     }
     void Update()
     {
@@ -89,24 +87,20 @@ public class PlayerMovement : MonoBehaviour
         // }
 
         // keyboard movement
+        rb.velocity = new Vector2(rb.velocity.x + 0.00001f, rb.velocity.y);
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            animator.SetBool("Up", true);
             rb.velocity = new Vector2(rb.velocity.x, (dashPower * 0.8f));
 
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            animator.SetBool("Down", true);
             rb.velocity = new Vector2(rb.velocity.x, (-dashPower * 0.8f));
 
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {   
-            animator.SetBool("Right", true);
-            rb.velocity = Vector2.right * dashPower;
 
-        }
+
+
         // if (Input.GetKeyDown(KeyCode.LeftArrow))
         // {   
         //     gameObject.GetComponent<CapsuleCollider2D>().size = new Vector2();
@@ -115,6 +109,13 @@ public class PlayerMovement : MonoBehaviour
         //     rb.velocity = Vector2.left * dashPower;
 
         // }
+    }
+
+    public void ressetMovement()
+    {
+        rb.velocity = new Vector2();
+        rb.velocity = Vector2.right * dashPower;
+        animator.SetBool("Right", true);
     }
 
 
