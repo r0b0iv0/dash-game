@@ -386,12 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1d666b7b0604a99af47a28d060d890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 3796789379299163619, guid: f03915d592cbe4493906195c7407a432, type: 3}
-  minX: 1
-  maxX: 9
-  minY: -4
-  maxY: 4
-  timeBetweenSpawn: 2
 --- !u!1 &294931175
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,12 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1d666b7b0604a99af47a28d060d890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 4475127239199456015, guid: c5d356740dc49476c83dc8b0617b8225, type: 3}
-  minX: 1
-  maxX: 9
-  minY: -4
-  maxY: 4
-  timeBetweenSpawn: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +896,6 @@ Transform:
   - {fileID: 1134410575}
   - {fileID: 192919943}
   - {fileID: 478987434}
-  - {fileID: 845707827}
   - {fileID: 1966346345}
   - {fileID: 1462455682}
   m_Father: {fileID: 0}
@@ -1668,56 +1655,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802955318}
   m_CullTransparentMesh: 1
---- !u!1 &845707826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 845707827}
-  - component: {fileID: 845707828}
-  m_Layer: 0
-  m_Name: Coin Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &845707827
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845707826}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 519420032}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &845707828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845707826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1d666b7b0604a99af47a28d060d890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacle: {fileID: 8030522191658620520, guid: 2cce1a692762043cba13bd1847d3f9ac, type: 3}
-  minX: 1
-  maxX: 9
-  minY: -4
-  maxY: 4
-  timeBetweenSpawn: 2
 --- !u!1 &990671193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,12 +2708,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1462455681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1d666b7b0604a99af47a28d060d890, type: 3}
+  m_Script: {fileID: 11500000, guid: 056eff15367e3418f9dacdb863988b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 7788685997521290768, guid: 81882bef17ece45f9b3a2ba8b12e783f, type: 3}
-  minX: 1
-  maxX: 9
+  minX: -6
+  maxX: 6
   minY: -4
   maxY: 4
   timeBetweenSpawn: 2
@@ -4230,7 +4167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2061023654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b53acf5fdb8614e8e81a6a0d01b791ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 345a0b31831ec42ee91e99d5a4a32e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 140347158}
