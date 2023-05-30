@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2536fbeff238d4273a67eb38883a613e
+guid: 7c17d4a8f41b04075808f7fbd18dd794
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,421 +131,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlienBlade-2_0
+      name: AlienBlade (1)_0
       rect:
         serializedVersion: 2
         x: 10
-        y: 130
+        y: 66
         width: 11
         height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5414246}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00848f2010faa4858aac42d29cd152eb
-      internalID: -534230360
+      spriteID: bb57a21e08bc74c2db81e14f61a4d5b1
+      internalID: 1035395040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_1
+      name: AlienBlade (1)_1
       rect:
         serializedVersion: 2
         x: 50
-        y: 130
+        y: 66
         width: 11
         height: 26
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4601693}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8810f6235a54044b294d3cb4d77d990e
-      internalID: 136948034
+      spriteID: 601e8bc2df4654428aecdc08fd0d89bc
+      internalID: -1652355476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_2
+      name: AlienBlade (1)_2
       rect:
         serializedVersion: 2
         x: 90
-        y: 130
+        y: 66
         width: 11
         height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5552325}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55eaf18c2b27406a8fbed006ce23966
-      internalID: -1937160966
+      spriteID: 54c098bfa0a4d48f9aa8ca914c3cf7ee
+      internalID: -2033782102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_3
+      name: AlienBlade (1)_3
       rect:
         serializedVersion: 2
         x: 130
-        y: 130
+        y: 66
         width: 11
         height: 26
-      alignment: 9
-      pivot: {x: 0.5313818, y: 0.44689238}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896a4f2648ff14abfb11b6af19a08183
-      internalID: -1360646906
+      spriteID: 1cff2dc8ef35e4e5aa863c0d27ae593b
+      internalID: 678172395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_4
+      name: AlienBlade (1)_4
       rect:
         serializedVersion: 2
         x: 169
-        y: 130
+        y: 66
         width: 12
         height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5770f033e62b64e4e81672042841cc96
-      internalID: -1222928645
+      spriteID: fc679168fbe76489fba72f49caeebadb
+      internalID: -278937669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_5
+      name: AlienBlade (1)_5
       rect:
         serializedVersion: 2
         x: 7
-        y: 90
+        y: 34
         width: 19
         height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfa09c2ae4e174ab5a384e3050fed104
-      internalID: -2012079683
+      spriteID: 2ca878b5a1047412e8f26ccb7b8997e1
+      internalID: 445141057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_6
+      name: AlienBlade (1)_6
       rect:
         serializedVersion: 2
         x: 43
-        y: 93
+        y: 37
         width: 34
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3ed5c382635042e986b2008616b6ccf
-      internalID: -870917210
+      spriteID: 35fbfc4a4b35c40e2870b5b822de4c80
+      internalID: 1959144771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_7
+      name: AlienBlade (1)_7
       rect:
         serializedVersion: 2
-        x: 82
-        y: 101
-        width: 37
+        x: 81
+        y: 45
+        width: 38
         height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5fc40b9b8c9f4db28f301e62b1d846f
-      internalID: -1105874560
+      spriteID: 25ace2cbabc194e2a817bfac2b3543cd
+      internalID: -297470816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_8
+      name: AlienBlade (1)_8
       rect:
         serializedVersion: 2
-        x: 139
-        y: 90
-        width: 11
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28987d88e48ae404086178310b950923
-      internalID: 859619524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_9
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 90
+        x: 134
+        y: 34
         width: 19
         height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d2afc4baa1bc4a7c8ecdbc4c7c5a8dc
-      internalID: -253975961
+      spriteID: f85e8dd352f774173b9c0f6154e54fe8
+      internalID: -227878212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_10
+      name: AlienBlade (1)_9
       rect:
         serializedVersion: 2
-        x: 3
-        y: 53
+        x: 163
+        y: 37
         width: 34
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e6440e6a5f6a46b4a4fafb875fc965a
-      internalID: -709338115
+      spriteID: a9bff51dbac0b42feac1224ff687b76b
+      internalID: 1960185184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienBlade-2_11
+      name: AlienBlade (1)_10
       rect:
         serializedVersion: 2
-        x: 41
-        y: 60
+        x: 1
+        y: 12
         width: 39
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06117be3ba1084044b0f3087a57b5206
-      internalID: -1056145819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_12
-      rect:
-        serializedVersion: 2
-        x: 89
-        y: 50
-        width: 12
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fca8d0d07323349ab82695dd4011c974
-      internalID: 2146040551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_13
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 49
-        width: 12
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6ec9107eacdf4e58acc5f574802f8f0
-      internalID: 1618142004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_14
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 49
-        width: 22
-        height: 28
-      alignment: 9
-      pivot: {x: 0.6725998, y: 0.5493142}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36fd17296a56a448dac9f906ef39118d
-      internalID: 1302231422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_15
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 8
-        width: 13
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5265538, y: 0.5755124}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bf636111954c4b399333a9b95a746ed
-      internalID: 1460076416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_16
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 10
-        width: 12
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 357a8d0d02d12437fbae48c9278dd8c8
-      internalID: -1862928394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_17
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 10
-        width: 11
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d4339cf5aa0d4b27ba0aa2fc8bd2df2
-      internalID: -2038585880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_18
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 10
-        width: 10
-        height: 26
-      alignment: 9
-      pivot: {x: 0.53452, y: 0.44689238}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4922655e39d8345a88c6f20edd6c0e03
-      internalID: -262314598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlienBlade-2_19
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 9
-        width: 9
-        height: 31
-      alignment: 9
-      pivot: {x: 0.50000167, y: 0.3886458}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c807605b79f3244aba2fafac49734397
-      internalID: 1859208512
+      spriteID: 8c9e43a8044434b88aef4391ac2a0535
+      internalID: 1287802794
       vertices: []
       indices: 
       edges: []
@@ -561,26 +372,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AlienBlade-2_3: -1360646906
-      AlienBlade-2_0: -534230360
-      AlienBlade-2_7: -1105874560
-      AlienBlade-2_4: -1222928645
-      AlienBlade-2_19: 1859208512
-      AlienBlade-2_11: -1056145819
-      AlienBlade-2_14: 1302231422
-      AlienBlade-2_18: -262314598
-      AlienBlade-2_1: 136948034
-      AlienBlade-2_8: 859619524
-      AlienBlade-2_17: -2038585880
-      AlienBlade-2_6: -870917210
-      AlienBlade-2_9: -253975961
-      AlienBlade-2_13: 1618142004
-      AlienBlade-2_15: 1460076416
-      AlienBlade-2_10: -709338115
-      AlienBlade-2_2: -1937160966
-      AlienBlade-2_5: -2012079683
-      AlienBlade-2_12: 2146040551
-      AlienBlade-2_16: -1862928394
+      AlienBlade (1)_3: 678172395
+      AlienBlade (1)_0: 1035395040
+      AlienBlade (1)_5: 445141057
+      AlienBlade (1)_4: -278937669
+      AlienBlade (1)_9: 1960185184
+      AlienBlade (1)_10: 1287802794
+      AlienBlade (1)_6: 1959144771
+      AlienBlade (1)_2: -2033782102
+      AlienBlade (1)_7: -297470816
+      AlienBlade (1)_8: -227878212
+      AlienBlade (1)_1: -1652355476
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

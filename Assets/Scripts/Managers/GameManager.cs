@@ -55,6 +55,10 @@ public class GameManager : MonoBehaviour
         // this.gameData.coinsTotal += Coins;
         this.GameOverScreen();
         ObstacleGeneration.DestroyObstacles();
+        // stops the particle system manually so it does not emit particles when paused
+        GameObject player = GameObject.FindWithTag("Player");
+        player.GetComponentInChildren<ParticleSystem>().Clear();
+        player.GetComponentInChildren<ParticleSystem>().Stop();
         if (newHighScore != 0)
         {   
             this.gameData.highScore = newHighScore;
