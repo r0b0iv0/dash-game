@@ -6,12 +6,13 @@ public class CameraMovement : MonoBehaviour
 {
 
     [SerializeField] private GameObject player;
-    [SerializeField] private int depthOffSet = -10;
-    [SerializeField] private int xOffSet = 6;
+    [SerializeField] private float depthOffSet = -10;
+    [SerializeField] private float xOffSet = 6;
+    [SerializeField] private float timeToDestination = 10f;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x + xOffSet, 0, depthOffSet);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x + xOffSet, transform.position.y, depthOffSet), Time.deltaTime / timeToDestination);
     }
 }
