@@ -20,6 +20,9 @@ public class GameOverScreen : MonoBehaviour
         this.respawn.RessetPositions();
         this.playerMovement.ressetMovement();
         this.gameObject.SetActive(false);
+        //start the particle system so it continues to run
+        GameObject player = GameObject.FindWithTag("Player");
+        player.GetComponentInChildren<ParticleSystem>().Play();
     }
 
     public void MainMenu() {

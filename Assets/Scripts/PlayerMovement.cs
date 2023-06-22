@@ -12,110 +12,60 @@ public class PlayerMovement : MonoBehaviour
     private Touch touch;
     public int pixelForTouchToCount = 20;
     private bool fingerDown;
-    public float dashPower = 10;
+    public float velocity = 7.5f;
+    [SerializeField]private float dashTime = 0.25f;
+    [SerializeField]private float dashPower = 10f;
+    [SerializeField]private float dashCooldown = 3f;
+
+    private bool isDashing = false;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.right * dashPower;
+        rb.velocity = Vector2.right * velocity;
         animator.SetBool("Right", true);
     }
     void Update()
     {
-        // mobile movement
-        // if (Input.touches.Length > 0)
-        // {
-        //     fingerDown = true;
-        //     dashed = false;
-        //     touch = Input.touches[0];
-        //     if (touch.phase == TouchPhase.Began)
-        //     {
-        //         Debug.Log(touch.position);
-        //         startPos = touch.position;
-        //     }
-
-        // }
-        // if (dashed)
-        // {
-        //     dashTime -= Time.deltaTime;
-        // }
-        // if (dashTime <= 0)
-        // {
-        //     dashTime = startDashTime;
-        //     Debug.Log("stop");
-        //     rb.velocity = Vector2.zero;
-        // }
-        // else
-        // {
-        //     if (fingerDown && touch.phase == TouchPhase.Ended)
-        //     {
-        //         endPos = touch.position;
-        //         if (startPos.y <= endPos.y - pixelForTouchToCount)
-        //         {
-        //             Debug.Log("Swipe Up");
-        //             fingerDown = false;
-        //             dashed = true;
-        //             rb.velocity = Vector2.up * dashPower;
-
-        //         }
-        //         if (startPos.y >= endPos.y + pixelForTouchToCount)
-        //         {
-        //             Debug.Log("Swipe Down");
-        //             fingerDown = false;
-        //             dashed = true;
-        //             rb.velocity = Vector2.down * dashPower;
-
-        //         }
-        //         if (startPos.x <= endPos.x - pixelForTouchToCount)
-        //         {
-        //             Debug.Log("Swipe right");
-        //             fingerDown = false;
-        //             dashed = true;
-        //             rb.velocity = Vector2.right * dashPower;
-
-        //         }
-        //         if (startPos.x >= endPos.x + pixelForTouchToCount)
-        //         {
-        //             Debug.Log("Swipe left");
-        //             fingerDown = false;
-        //             dashed = true;
-        //             rb.velocity = Vector2.left * dashPower;
-
-        //         }
-        //     }
-        // }
-
-        // keyboard movement
-        rb.velocity = new Vector2(rb.velocity.x + 0.00001f, rb.velocity.y);
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+       if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            rb.velocity = new Vector2(rb.velocity.x, (dashPower * 0.8f));
-
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, (-dashPower * 0.8f));
+            StartCoroutine(Dash());
 
         }
 
+       
+    }
 
+    private void FixedUpdate() {
 
-        // if (Input.GetKeyDown(KeyCode.LeftArrow))
-        // {   
-        //     gameObject.GetComponent<CapsuleCollider2D>().size = new Vector2();
-        //     animator.SetBool("Right", false);
-        //     animator.SetBool("Left", true);
-        //     rb.velocity = Vector2.left * dashPower;
+         if (isDashing == false) {
+            rb.velocity = new Vector2(velocity + 0.00001f, rb.velocity.y);
+        }
+         
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            rb.velocity = new Vector2(velocity + 0.00001f, (velocity * 0.6f));
 
-        // }
+        }
+       
     }
 
     public void ressetMovement()
     {
         rb.velocity = new Vector2();
-        rb.velocity = Vector2.right * dashPower;
+        rb.velocity = Vector2.right * velocity;
         animator.SetBool("Right", true);
+    }
+
+    private IEnumerator Dash() 
+    {   
+        isDashing = true;
+        rb.velocity = new Vector2(rb.velocity.x + dashPower, rb.velocity.y);
+        rb.gravityScale = 0f;
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        rb.gravityScale = 0.8f;
     }
 
 
