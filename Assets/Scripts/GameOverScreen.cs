@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    private Respawn respawn;
+    private PlayerCollisions collisions;
     private PlayerMovement playerMovement;
     private GameManager gameManager;
     void Start()
     {
-        this.respawn = FindObjectOfType<Respawn>();
+        this.collisions = FindObjectOfType<PlayerCollisions>();
         this.playerMovement = FindObjectOfType<PlayerMovement>();
         this.gameManager = FindObjectOfType<GameManager>();
     }
     public void PlayAgain()
     {   
         this.gameManager.ressetScore();
-        this.respawn.RessetPositions();
+        this.collisions.RessetPositions();
         this.playerMovement.ressetMovement();
         this.gameObject.SetActive(false);
         //start the particle system so it continues to run

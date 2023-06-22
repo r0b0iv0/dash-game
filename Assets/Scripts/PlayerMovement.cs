@@ -13,22 +13,24 @@ public class PlayerMovement : MonoBehaviour
     public int pixelForTouchToCount = 20;
     private bool fingerDown;
     public float velocity = 7.5f;
+    private ParticleSystem particleSystem;
     [SerializeField]private float dashTime = 0.25f;
     [SerializeField]private float dashPower = 10f;
-    [SerializeField]private float dashCooldown = 3f;
-
-    private bool isDashing = false;
+    [SerializeField]private float dashCooldown = 2f;
+    private bool canDash = true;
+    
+    public bool isDashing = false;
 
 
     void Start()
-    {
+    {   
+        particleSystem = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.right * velocity;
-        animator.SetBool("Right", true);
     }
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.RightArrow))
+       if (Input.GetKeyDown(KeyCode.RightArrow) && canDash)
         {
             StartCoroutine(Dash());
 
@@ -55,17 +57,23 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2();
         rb.velocity = Vector2.right * velocity;
-        animator.SetBool("Right", true);
     }
 
     private IEnumerator Dash() 
     {   
-        isDashing = true;
+            canDash = false;
+            isDashing = true;
+        animator.SetBool("Attack", true);
         rb.velocity = new Vector2(rb.velocity.x + dashPower, rb.velocity.y);
+        particleSystem.Emit(10);
         rb.gravityScale = 0f;
         yield return new WaitForSeconds(dashTime);
+        animator.SetBool("Attack", false);
         isDashing = false;
         rb.gravityScale = 0.8f;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 
 
