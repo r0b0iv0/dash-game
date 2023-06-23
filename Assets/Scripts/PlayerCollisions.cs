@@ -12,7 +12,7 @@ public class PlayerCollisions : MonoBehaviour
     private GameManager gm;
 
     void Start()
-    {   
+    {
 
         camPos = cam.transform.position;
         playerPos = player.transform.position;
@@ -23,28 +23,35 @@ public class PlayerCollisions : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "DeadZone")
-        {   
+        {
             gm.GameOver();
         }
-        if(col.tag == "Coin") {
+        if (col.tag == "Coin")
+        {
             Destroy(col.gameObject);
         }
-        if(col.tag == "Point Increase") {
+        if (col.tag == "Point Increase")
+        {
             Destroy(col.gameObject);
             gm.Score += 2;
         }
-        if(col.gameObject.tag == "Enemy") {
-            if(playerMovementScript.isDashing) {
-                Destroy(col.gameObject); 
-                //play enemy death animation  
-            } else {
-                Destroy(col.gameObject);
+        if (col.gameObject.tag == "Enemy")
+        {
+            Animator gameObjectAnimator = col.gameObject.GetComponent<Animator>();
+            if (playerMovementScript.isDashing)
+            {
+                gameObjectAnimator.SetTrigger("Die");
+            }
+            else
+            {
+
                 // play player death animation
                 gm.GameOver();
             }
-            
+
         }
     }
+
 
     public void RessetPositions()
     {
