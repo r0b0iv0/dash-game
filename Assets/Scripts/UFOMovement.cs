@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UFOMovement : MonoBehaviour
 {   
-    [SerializeField] Rigidbody2D rb;
+    Rigidbody2D rb;
     [SerializeField] float speed = 10f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
