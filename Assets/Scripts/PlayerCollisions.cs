@@ -26,11 +26,11 @@ public class PlayerCollisions : MonoBehaviour
         {
             gm.GameOver();
         }
-        if (col.tag == "Coin")
+        if (col.gameObject.tag == "Coin")
         {
             Destroy(col.gameObject);
         }
-        if (col.tag == "Point Increase")
+        if (col.gameObject.tag == "Point Increase")
         {
             Destroy(col.gameObject);
             gm.Score += 2;

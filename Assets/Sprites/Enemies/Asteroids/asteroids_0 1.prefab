@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7602997941556238991}
   - component: {fileID: 7602997941556238976}
   - component: {fileID: 5743524067836455780}
-  - component: {fileID: 3251603580434553127}
   m_Layer: 0
   m_Name: asteroids_0 1
   m_TagString: Enemy
@@ -156,19 +155,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab5537776d4744841853b9335dd43da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
---- !u!114 &3251603580434553127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7602997941556238977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c2c60c61b06d549bd00d86e054cb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100

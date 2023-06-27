@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7788685997521290734}
   - component: {fileID: 7788685997521290735}
   - component: {fileID: 3475894802890420810}
+  - component: {fileID: 1264658953841339128}
   m_Layer: 0
   m_Name: Ruby_0
   m_TagString: Point Increase
@@ -122,3 +123,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.296875
+--- !u!114 &1264658953841339128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788685997521290768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7784b9f2a7baf15408d5a561076df7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectSpeed: 10

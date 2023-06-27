@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         // this.gameData.coinsTotal = (GetComponent<TextMeshProUGUI>().text.Split(' ')[1])
         // this.gameData.coinsTotal += Coins;
         this.GameOverScreen();
+        AsteroidGeneration.DestroyObstacles();
         ObstacleGeneration.DestroyObstacles();
         // stops the particle system manually so it does not emit particles when paused
         GameObject player = GameObject.FindWithTag("Player");
