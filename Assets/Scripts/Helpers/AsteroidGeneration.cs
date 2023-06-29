@@ -13,8 +13,13 @@ public class AsteroidGeneration : MonoBehaviour
     [SerializeField] private float asteroidSpeed;
     [SerializeField] private List<GameObject> objectsToSpawn = new List<GameObject>();
     private float lastSpawnTime;
+    [SerializeField] private float TimeForCleanUp = 15;
+    public float lastCleanUpTime = 15;
+
+    private bool toSaveObjects = false;
 
     public static List<GameObject> objects = new List<GameObject>();
+    public static List<GameObject> OldObjects = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
@@ -34,12 +39,46 @@ public class AsteroidGeneration : MonoBehaviour
             lastSpawnTime = Time.time + timeBetweenSpawn;
         }
 
+        CleanUp();
+
     }
 
-    public static void DestroyObstacles() {
-        foreach(GameObject obstacle in objects) {
+    public static void DestroyObstacles()
+    {
+        foreach (GameObject obstacle in objects)
+        {
             Destroy(obstacle);
         }
         objects.Clear();
+    }
+
+    private void CleanUp()
+    {
+        if (Time.time > lastCleanUpTime)
+        {
+
+            if (toSaveObjects)
+            {
+                toSaveObjects = false;
+                foreach (GameObject obstacle in objects)
+                {
+                    OldObjects.Add(obstacle);
+
+                }
+
+            }
+            if (Time.time > lastCleanUpTime + 5)
+            {
+
+                foreach (GameObject obstacle in OldObjects)
+                {
+                    Destroy(obstacle);
+                }
+                lastCleanUpTime = Time.time + TimeForCleanUp;
+                toSaveObjects = true;
+
+            }
+
+        }
     }
 }

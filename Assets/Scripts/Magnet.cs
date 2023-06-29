@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Magnet : MonoBehaviour
-{   
+{
     private GameObject player;
     private bool hit = false;
     [SerializeField] private float collectSpeed;
@@ -12,19 +12,20 @@ public class Magnet : MonoBehaviour
         if (col.gameObject.tag == "Magnet")
         {
             hit = true;
-            Debug.Log("hit");
         }
     }
 
-    void Start() {
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void FixedUpdate() {
-        if (hit) {
-            Debug.Log(player.transform.position);
+    void FixedUpdate()
+    {
+        if (hit)
+        {
             transform.position = Vector2.Lerp(transform.position, player.transform.position, collectSpeed * Time.deltaTime);
         }
-        
+
     }
 }
