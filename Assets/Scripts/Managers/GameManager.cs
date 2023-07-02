@@ -10,10 +10,15 @@ public class GameManager : MonoBehaviour
     public float Score { get; set; }
     private int scoreMultiplayer = 2;
     private int newHighScore = 0;
+    private float lastSpeedIncrease = 20;
+    private float intervalSpeedIncrease = 20;
     private GameData gameData = new GameData();
+    private PlayerMovement playerMovementScript;
+    [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private List<GameObject> spawnersList;
 
     private void Awake()
     {
@@ -21,6 +26,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        playerMovementScript = FindObjectOfType<PlayerMovement>();
         // Debug.Log(Newtonsoft.Json.JsonConvert.SerializeObject(text));
         gameData = SaveSystem.Load();
         // scoreText.text = "X " + gameData.coinsTotal;
@@ -31,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        increaseGameSpeed();
         scoreText.text = "Score: " + System.Math.Ceiling(scoreIncrement()).ToString("N0");
     }
 
@@ -51,8 +58,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        // this.gameData.coinsTotal = (GetComponent<TextMeshProUGUI>().text.Split(' ')[1])
-        // this.gameData.coinsTotal += Coins;
         this.GameOverScreen();
         AsteroidGeneration.DestroyObstacles();
         ObstacleGeneration.DestroyObstacles();
@@ -61,7 +66,7 @@ public class GameManager : MonoBehaviour
         player.GetComponentInChildren<ParticleSystem>().Clear();
         player.GetComponentInChildren<ParticleSystem>().Stop();
         if (newHighScore != 0)
-        {   
+        {
             this.gameData.highScore = newHighScore;
             highScoreText.text = "High Score: " + gameData.highScore.ToString();
         }
@@ -77,5 +82,27 @@ public class GameManager : MonoBehaviour
     public void ressetScore()
     {
         this.Score = 0;
+    }
+
+    private void increaseGameSpeed()
+    {
+        if (Time.time > lastSpeedIncrease)
+        {
+            playerMovementScript.rightVelocity += 1.5f;
+            lastSpeedIncrease += intervalSpeedIncrease;
+
+            spawnerGenerator();
+        }
+
+    }
+
+    private void spawnerGenerator()
+    {
+        int rand = Random.Range(0, 1);
+        Debug.Log(rand);
+
+        GameObject spawner = Instantiate(spawnersList[rand], new Vector3(cam.transform.position.x + 20, 0, cam.transform.position.z + 10), Quaternion.identity);
+        spawner.transform.parent = cam.transform;
+
     }
 }

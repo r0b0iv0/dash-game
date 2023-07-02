@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public int pixelForTouchToCount = 20;
     private bool fingerDown;
     public float velocity = 7.5f;
+    public float defeaultVelocity = 7.5f;
+    public float rightVelocity = 7.5f;
     private ParticleSystem particleSystem;
     [SerializeField] private float dashTime = 0.25f;
     [SerializeField] private float dashPower = 10f;
@@ -34,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && canDash)
         {
             StartCoroutine(Dash());
-
+            Debug.Log(rightVelocity);
         }
 
 
@@ -45,12 +47,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (isDashing == false)
         {
-            rb.velocity = new Vector2(velocity + 0.00001f, rb.velocity.y);
+            rb.velocity = new Vector2(rightVelocity, rb.velocity.y);
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            rb.velocity = new Vector2(velocity + 0.00001f, (velocity * 0.6f));
+            rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
 
         }
 
@@ -59,7 +61,8 @@ public class PlayerMovement : MonoBehaviour
     public void ressetMovement()
     {
         rb.velocity = new Vector2();
-        rb.velocity = Vector2.right * velocity;
+        rightVelocity = defeaultVelocity;
+        rb.velocity = Vector2.right * defeaultVelocity;
     }
 
     private IEnumerator Dash()

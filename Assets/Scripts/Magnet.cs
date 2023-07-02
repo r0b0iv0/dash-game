@@ -6,7 +6,7 @@ public class Magnet : MonoBehaviour
 {
     private GameObject player;
     private bool hit = false;
-    [SerializeField] private float collectSpeed;
+    [SerializeField] private float collectSpeed = 0.6f;
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Magnet")
@@ -24,7 +24,7 @@ public class Magnet : MonoBehaviour
     {
         if (hit)
         {
-            transform.position = Vector2.Lerp(transform.position, player.transform.position, collectSpeed * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, player.transform.position, collectSpeed);
         }
 
     }
