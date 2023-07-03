@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private GameObject gameOverScreen;
-    [SerializeField] private List<GameObject> spawnersList;
+    [SerializeField] private List<GameObject> spawnersList = new List<GameObject>();
+    private List<GameObject> spawnersListCopies = new List<GameObject>();
 
     private void Awake()
     {
@@ -30,15 +31,15 @@ public class GameManager : MonoBehaviour
         // Debug.Log(Newtonsoft.Json.JsonConvert.SerializeObject(text));
         gameData = SaveSystem.Load();
         // scoreText.text = "X " + gameData.coinsTotal;
-        scoreText.text = "Score: 0";
-        highScoreText.text = "High Score: " + gameData.highScore.ToString();
+        // scoreText.text = "Score: 0";
+        highScoreText.text = "Best: " + gameData.highScore.ToString();
         this.scoreMultiplayer = 2;
     }
 
     void Update()
     {
         increaseGameSpeed();
-        scoreText.text = "Score: " + System.Math.Ceiling(scoreIncrement()).ToString("N0");
+        scoreText.text = System.Math.Ceiling(scoreIncrement()).ToString("N0");
     }
 
     // public void CollectCoins()
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
         this.GameOverScreen();
         AsteroidGeneration.DestroyObstacles();
         ObstacleGeneration.DestroyObstacles();
+        spawnerCleaner();
         // stops the particle system manually so it does not emit particles when paused
         GameObject player = GameObject.FindWithTag("Player");
         player.GetComponentInChildren<ParticleSystem>().Clear();
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour
         if (newHighScore != 0)
         {
             this.gameData.highScore = newHighScore;
-            highScoreText.text = "High Score: " + gameData.highScore.ToString();
+            highScoreText.text = "Best: " + gameData.highScore.ToString();
         }
         SaveSystem.Save(this.gameData);
     }
@@ -98,11 +100,21 @@ public class GameManager : MonoBehaviour
 
     private void spawnerGenerator()
     {
-        int rand = Random.Range(0, 1);
-        Debug.Log(rand);
+        int rand = Random.Range(0, 2);
 
         GameObject spawner = Instantiate(spawnersList[rand], new Vector3(cam.transform.position.x + 20, 0, cam.transform.position.z + 10), Quaternion.identity);
+        spawnersListCopies.Add(spawner);
         spawner.transform.parent = cam.transform;
 
+
+
+    }
+
+    private void spawnerCleaner()
+    {
+        foreach (GameObject spawner in spawnersListCopies)
+        {
+            Destroy(spawner);
+        }
     }
 }

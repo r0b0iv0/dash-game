@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && canDash)
         {
             StartCoroutine(Dash());
-            Debug.Log(rightVelocity);
         }
 
 

@@ -39,7 +39,7 @@ public class AsteroidGeneration : MonoBehaviour
             lastSpawnTime = Time.time + timeBetweenSpawn;
         }
 
-        CleanUp();
+        // CleanUp();
 
     }
 
@@ -52,33 +52,38 @@ public class AsteroidGeneration : MonoBehaviour
         objects.Clear();
     }
 
-    private void CleanUp()
+    // private void CleanUp()
+    // {
+    //     if (Time.time > lastCleanUpTime)
+    //     {
+    //         Debug.Log("time");
+    //         if (toSaveObjects)
+    //         {
+    //             toSaveObjects = false;
+    //             foreach (GameObject obstacle in objects)
+    //             {
+    //                 OldObjects.Add(obstacle);
+
+    //             }
+
+    //         }
+    //         if (Time.time > lastCleanUpTime + 5)
+    //         {
+    //             Debug.Log("clean");
+    //             foreach (GameObject obstacle in OldObjects)
+    //             {
+    //                 Destroy(obstacle);
+    //             }
+    //             lastCleanUpTime = Time.time + TimeForCleanUp;
+    //             toSaveObjects = true;
+
+    //         }
+
+    //     }
+    // }
+
+    public void ressetCleanUp()
     {
-        if (Time.time > lastCleanUpTime)
-        {
-
-            if (toSaveObjects)
-            {
-                toSaveObjects = false;
-                foreach (GameObject obstacle in objects)
-                {
-                    OldObjects.Add(obstacle);
-
-                }
-
-            }
-            if (Time.time > lastCleanUpTime + 5)
-            {
-
-                foreach (GameObject obstacle in OldObjects)
-                {
-                    Destroy(obstacle);
-                }
-                lastCleanUpTime = Time.time + TimeForCleanUp;
-                toSaveObjects = true;
-
-            }
-
-        }
+        lastCleanUpTime = 0;
     }
 }
