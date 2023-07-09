@@ -33,16 +33,35 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.RightArrow) && canDash)
         {
             StartCoroutine(Dash());
         }
 
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && canDash)
+        {
+            startPos = Input.touches[0].position;
+            if (Input.touches[0].position.x >= startPos.x + pixelForTouchToCount)
+            {
+                StartCoroutine(Dash());
+            }
+
+        }
 
     }
 
     private void FixedUpdate()
     {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
+
+        }
+
+
+
+
 
         if (isDashing == false)
         {
@@ -54,6 +73,9 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
 
         }
+
+
+
 
     }
 

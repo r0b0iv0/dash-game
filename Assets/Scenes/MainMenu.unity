@@ -2590,6 +2590,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4109115681316828503, guid: 3b46467aa9def7b4c8e1e09d97c18422, type: 3}
   m_PrefabInstance: {fileID: 21921811}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1174661619 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2090723497185814779, guid: 9e87c9719cb85d84ebf0c78df9d737c3, type: 3}
+  m_PrefabInstance: {fileID: 2266649286622172736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1203686785
 GameObject:
   m_ObjectHideFlags: 0
@@ -5576,10 +5581,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2090723497185814779, guid: 9e87c9719cb85d84ebf0c78df9d737c3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5511107883582500594, guid: 9e87c9719cb85d84ebf0c78df9d737c3, type: 3}
       propertyPath: m_Name
       value: PlayAnimation
       objectReference: {fileID: 0}
+    - target: {fileID: 7101268697852222121, guid: 9e87c9719cb85d84ebf0c78df9d737c3, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1174661619}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e87c9719cb85d84ebf0c78df9d737c3, type: 3}

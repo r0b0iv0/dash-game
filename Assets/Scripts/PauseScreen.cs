@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverScreen : MonoBehaviour
+public class PauseScreen : MonoBehaviour
 {
     private PlayerCollisions collisions;
     private PlayerMovement playerMovement;
@@ -33,5 +33,10 @@ public class GameOverScreen : MonoBehaviour
     public void Resume() {
         Time.timeScale = 1;
         this.gameObject.SetActive(false);
+    }
+
+    public void Open() {
+        Time.timeScale = 0;
+        this.gameObject.SetActive(true);
     }
 }
