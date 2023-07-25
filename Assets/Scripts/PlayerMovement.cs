@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float defeaultVelocity = 7.5f;
     public float rightVelocity = 7.5f;
     private ParticleSystem particleSystem;
+    private SoundManager soundManager;
     [SerializeField] private float dashTime = 0.25f;
     [SerializeField] private float dashPower = 10f;
     [SerializeField] private float dashCooldown = 2f;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         particleSystem = GetComponentInChildren<ParticleSystem>();
+        soundManager = FindObjectOfType<SoundManager>();
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.right * velocity;
     }
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.touches[0].position.x >= startPos.x + pixelForTouchToCount)
             {
                 StartCoroutine(Dash());
+                
             }
 
         }
@@ -92,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         animator.SetBool("Attack", true);
         rb.velocity = new Vector2(rb.velocity.x + dashPower, rb.velocity.y);
+        soundManager.playAttackSound();
         particleSystem.Emit(10);
         rb.gravityScale = 0f;
         yield return new WaitForSeconds(dashTime);

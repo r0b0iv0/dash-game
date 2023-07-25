@@ -8,6 +8,7 @@ public class GameOverScreen : MonoBehaviour
     private PlayerCollisions collisions;
     private PlayerMovement playerMovement;
     private GameManager gameManager;
+    [SerializeField] GameObject pauseButton;
     void Start()
     {
         this.collisions = FindObjectOfType<PlayerCollisions>();
@@ -22,6 +23,7 @@ public class GameOverScreen : MonoBehaviour
         this.gameObject.SetActive(false);
         //start the particle system so it continues to run
         GameObject player = GameObject.FindWithTag("Player");
+        pauseButton.SetActive(true);
         player.GetComponentInChildren<ParticleSystem>().Play();
     }
 

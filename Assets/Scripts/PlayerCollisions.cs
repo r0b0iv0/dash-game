@@ -7,6 +7,7 @@ public class PlayerCollisions : MonoBehaviour
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject player;
     private PlayerMovement playerMovementScript;
+    private SoundManager soundManager;
     private Vector3 camPos;
     private Vector3 playerPos;
     private GameManager gm;
@@ -18,6 +19,7 @@ public class PlayerCollisions : MonoBehaviour
         playerPos = player.transform.position;
         gm = FindObjectOfType<GameManager>();
         playerMovementScript = FindObjectOfType<PlayerMovement>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -31,16 +33,21 @@ public class PlayerCollisions : MonoBehaviour
             Destroy(col.gameObject);
         }
         if (col.gameObject.tag == "Point Increase")
-        {
+        {   
+            soundManager.playCoinSound();
             Destroy(col.gameObject);
             gm.Score += 2;
         }
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == "UFO" || col.gameObject.tag == "Asteroid" || col.gameObject.tag == "Enemy")
         {
             Animator gameObjectAnimator = col.gameObject.GetComponent<Animator>();
             if (playerMovementScript.isDashing)
             {
                 gameObjectAnimator.SetTrigger("Die");
+                if(col.gameObject.tag == "UFO") {
+                    soundManager.playExplodeSound();
+                }
+                
             }
             else
             {

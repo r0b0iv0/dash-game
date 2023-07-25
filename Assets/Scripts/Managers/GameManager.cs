@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private List<GameObject> spawnersList = new List<GameObject>();
+    [SerializeField] GameObject pauseButton;
     private List<GameObject> spawnersListCopies = new List<GameObject>();
 
     private void Awake()
@@ -79,6 +81,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         gameOverScreen.SetActive(true);
+        pauseButton.SetActive(false);
     }
 
     public void ressetScore()
