@@ -36,7 +36,7 @@ public class ObstacleGeneration : MonoBehaviour
             lastSpawnTime = Time.time + timeBetweenSpawn;
         }
 
-        CleanUp();
+        // CleanUp();
 
     }
 
@@ -49,35 +49,35 @@ public class ObstacleGeneration : MonoBehaviour
         objects.Clear();
     }
 
-    private void CleanUp()
-    {
-        if (Time.time > lastCleanUpTime)
-        {
+    // private void CleanUp()
+    // {
+    //     if (Time.time > lastCleanUpTime)
+    //     {
 
-            if (toSaveObjects)
-            {
-                toSaveObjects = false;
-                foreach (GameObject obstacle in objects)
-                {
-                    OldObjects.Add(obstacle);
+    //         if (toSaveObjects)
+    //         {
+    //             toSaveObjects = false;
+    //             foreach (GameObject obstacle in objects)
+    //             {
+    //                 OldObjects.Add(obstacle);
 
-                }
+    //             }
 
-            }
-            if (Time.time > lastCleanUpTime + 5)
-            {
+    //         }
+    //         if (Time.time > lastCleanUpTime + 5)
+    //         {
 
-                foreach (GameObject obstacle in OldObjects)
-                {
-                    Destroy(obstacle);
-                }
-                lastCleanUpTime = Time.time + TimeForCleanUp;
-                toSaveObjects = true;
+    //             foreach (GameObject obstacle in OldObjects)
+    //             {
+    //                 Destroy(obstacle);
+    //             }
+    //             lastCleanUpTime = Time.time + TimeForCleanUp;
+    //             toSaveObjects = true;
 
-            }
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
 
 }

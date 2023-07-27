@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 startPos;
     private Vector2 endPos;
     private Touch touch;
-    public int pixelForTouchToCount = 20;
+    public int pixelForTouchToCount = 40;
     private bool fingerDown;
     public float velocity = 7.5f;
     public float defeaultVelocity = 7.5f;
@@ -41,24 +41,21 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && canDash)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && canDash)
         {
-            startPos = Input.touches[0].position;
-            if (Input.touches[0].position.x >= startPos.x + pixelForTouchToCount)
-            {
-                StartCoroutine(Dash());
-                
-            }
-
+            StartCoroutine(Dash());
         }
 
     }
 
     private void FixedUpdate()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0 && !isDashing)
         {
+
             rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
+
+
 
         }
 
@@ -98,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         soundManager.playAttackSound();
         particleSystem.Emit(10);
         rb.gravityScale = 0f;
+
         yield return new WaitForSeconds(dashTime);
         animator.SetBool("Attack", false);
         barAnimator.SetBool("hasDashed", true);
