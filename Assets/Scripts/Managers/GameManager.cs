@@ -36,18 +36,14 @@ public class GameManager : MonoBehaviour
         // scoreText.text = "Score: 0";
         highScoreText.text = "Best: " + gameData.highScore.ToString();
         this.scoreMultiplayer = 2;
+        InvokeRepeating("increaseGameSpeed", intervalSpeedIncrease, intervalSpeedIncrease);
     }
 
     void Update()
     {
-        increaseGameSpeed();
         scoreText.text = System.Math.Ceiling(scoreIncrement()).ToString("N0");
     }
 
-    // public void CollectCoins()
-    // {
-    //     Coins += 1;
-    // }
 
     public float scoreIncrement()
     {
@@ -91,19 +87,27 @@ public class GameManager : MonoBehaviour
 
     private void increaseGameSpeed()
     {
-        if (Time.time > lastSpeedIncrease)
-        {
-            playerMovementScript.rightVelocity += 1.5f;
-            lastSpeedIncrease += intervalSpeedIncrease;
 
-            spawnerGenerator();
-        }
+        playerMovementScript.rightVelocity += 1.5f;
+        lastSpeedIncrease += intervalSpeedIncrease;
+
+        spawnerGenerator();
+
 
     }
 
     private void spawnerGenerator()
     {
+        float randTime = Random.Range(0, 5);
         int rand = Random.Range(0, 2);
+        if (spawnersList[rand].TryGetComponent<ObstacleGeneration>(out ObstacleGeneration obstacleGeneration))
+        {
+            spawnersList[rand].GetComponent<ObstacleGeneration>().timeBetweenSpawn = randTime;
+        }
+        else
+        {
+            spawnersList[rand].GetComponent<AsteroidGeneration>().timeBetweenSpawn = randTime;
+        }
 
         GameObject spawner = Instantiate(spawnersList[rand], new Vector3(cam.transform.position.x + 20, 0, cam.transform.position.z + 10), Quaternion.identity);
         spawnersListCopies.Add(spawner);
@@ -113,7 +117,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void spawnerCleaner()
+    public void spawnerCleaner()
     {
         foreach (GameObject spawner in spawnersListCopies)
         {

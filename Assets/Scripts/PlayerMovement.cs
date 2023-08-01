@@ -41,26 +41,42 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && canDash)
+        if (Input.touchCount > 0)
         {
-            StartCoroutine(Dash());
+
+            switch (Input.GetTouch(0).phase)
+            {
+                case TouchPhase.Began:
+                    touch = Input.GetTouch(0);
+                    startPos = Input.GetTouch(0).position;
+                    break;
+                case TouchPhase.Ended:
+
+                    endPos = Input.GetTouch(0).position;
+
+                    if (startPos.x + pixelForTouchToCount <= endPos.x && canDash)
+                    {
+                        StartCoroutine(Dash());
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
+                    }
+                    break;
+
+
+
+            }
+
+
         }
+
 
     }
 
-    private void FixedUpdate()
+
+    void FixedUpdate()
     {
-        if (Input.touchCount > 0 && !isDashing)
-        {
-
-            rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
-
-
-
-        }
-
-
-
 
 
         if (isDashing == false)
@@ -73,7 +89,6 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
 
         }
-
 
 
 

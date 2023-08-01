@@ -9,7 +9,7 @@ public class AsteroidGeneration : MonoBehaviour
     [SerializeField] private float maxX;
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
-    [SerializeField] private float timeBetweenSpawn;
+    [SerializeField] public float timeBetweenSpawn;
     [SerializeField] private float asteroidSpeed;
     [SerializeField] private List<GameObject> objectsToSpawn = new List<GameObject>();
     private float lastSpawnTime;

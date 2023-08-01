@@ -9,12 +9,9 @@ public class ObstacleGeneration : MonoBehaviour
     [SerializeField] private float maxX;
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
-    [SerializeField] private float timeBetweenSpawn;
+    [SerializeField] public float timeBetweenSpawn;
     [SerializeField] private List<GameObject> objectsToSpawn = new List<GameObject>();
     private float lastSpawnTime;
-    [SerializeField] private float TimeForCleanUp = 20;
-    private float lastCleanUpTime = 20;
-    private bool toSaveObjects = true;
 
     public static List<GameObject> objects = new List<GameObject>();
 
@@ -36,7 +33,6 @@ public class ObstacleGeneration : MonoBehaviour
             lastSpawnTime = Time.time + timeBetweenSpawn;
         }
 
-        // CleanUp();
 
     }
 
@@ -48,36 +44,6 @@ public class ObstacleGeneration : MonoBehaviour
         }
         objects.Clear();
     }
-
-    // private void CleanUp()
-    // {
-    //     if (Time.time > lastCleanUpTime)
-    //     {
-
-    //         if (toSaveObjects)
-    //         {
-    //             toSaveObjects = false;
-    //             foreach (GameObject obstacle in objects)
-    //             {
-    //                 OldObjects.Add(obstacle);
-
-    //             }
-
-    //         }
-    //         if (Time.time > lastCleanUpTime + 5)
-    //         {
-
-    //             foreach (GameObject obstacle in OldObjects)
-    //             {
-    //                 Destroy(obstacle);
-    //             }
-    //             lastCleanUpTime = Time.time + TimeForCleanUp;
-    //             toSaveObjects = true;
-
-    //         }
-
-    //     }
-    // }
 
 
 }

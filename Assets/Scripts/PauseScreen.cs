@@ -27,6 +27,12 @@ public class PauseScreen : MonoBehaviour
 
     public void MainMenu() {
         Time.timeScale = 1;
+        AsteroidGeneration.DestroyObstacles();
+        ObstacleGeneration.DestroyObstacles();
+        gameManager.spawnerCleaner();
+        this.gameManager.ressetScore();
+        this.collisions.RessetPositions();
+        this.playerMovement.ressetMovement();
         SceneManager.LoadScene("MainMenu");
     }
 
