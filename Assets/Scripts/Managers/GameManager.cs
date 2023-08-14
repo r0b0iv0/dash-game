@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     private void spawnerGenerator()
     {
-        float randTime = Random.Range(0, 5);
+        float randTime = Random.Range(1, 5);
         int rand = Random.Range(0, 2);
         if (spawnersList[rand].TryGetComponent<ObstacleGeneration>(out ObstacleGeneration obstacleGeneration))
         {

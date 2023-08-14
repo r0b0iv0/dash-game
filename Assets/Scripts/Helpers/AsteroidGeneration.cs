@@ -13,10 +13,7 @@ public class AsteroidGeneration : MonoBehaviour
     [SerializeField] private float asteroidSpeed;
     [SerializeField] private List<GameObject> objectsToSpawn = new List<GameObject>();
     private float lastSpawnTime;
-    [SerializeField] private float TimeForCleanUp = 15;
     public float lastCleanUpTime = 15;
-
-    private bool toSaveObjects = false;
 
     public static List<GameObject> objects = new List<GameObject>();
     public static List<GameObject> OldObjects = new List<GameObject>();

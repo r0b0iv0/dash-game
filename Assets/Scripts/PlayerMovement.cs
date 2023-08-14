@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
             switch (Input.GetTouch(0).phase)
             {
                 case TouchPhase.Began:
-                    touch = Input.GetTouch(0);
                     startPos = Input.GetTouch(0).position;
                     break;
                 case TouchPhase.Ended:
@@ -60,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     else
                     {
-                        rb.velocity = new Vector2(rightVelocity, (velocity * 0.6f));
+                        rb.velocity = new Vector2(rightVelocity, (velocity * 0.7f));
                     }
                     break;
 
