@@ -60,11 +60,6 @@ public class PlayerMovement : MonoBehaviour
                     {
                         StartCoroutine(Dash());
                     }
-                    // else
-                    // {
-                    //     rb.velocity = new Vector2(rightVelocity, (velocity * 0.7f));
-                    // }
-
                     break;
 
 
