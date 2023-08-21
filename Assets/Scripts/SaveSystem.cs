@@ -16,8 +16,10 @@ public static class SaveSystem
     }
 
     public static GameData Load() {
+        Debug.Log(!File.Exists(getPath()));
         if(!File.Exists(getPath())) {
             GameData emptyData = new GameData();
+            Debug.Log(emptyData);
             Save(emptyData);
             return emptyData;
         }

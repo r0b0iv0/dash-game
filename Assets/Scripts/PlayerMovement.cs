@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 startPos;
     private Vector2 endPos;
     private Touch touch;
-    public int pixelForTouchToCount = 40;
+    
+    [SerializeField] private int pixelForTouchToCount = 40;
     private bool fingerDown;
     public float velocity = 7.5f;
     public float defeaultVelocity = 7.5f;
@@ -43,13 +44,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-
+            if(Input.GetTouch(0).phase == TouchPhase.Stationary ) {
+                rb.velocity = new Vector2(rightVelocity, (velocity * 0.7f));
+            } else
             switch (Input.GetTouch(0).phase)
-            {
+            {   
                 case TouchPhase.Began:
                     startPos = Input.GetTouch(0).position;
                     break;
-                case TouchPhase.Ended:
+                case TouchPhase.Moved:
 
                     endPos = Input.GetTouch(0).position;
 
@@ -57,10 +60,11 @@ public class PlayerMovement : MonoBehaviour
                     {
                         StartCoroutine(Dash());
                     }
-                    else
-                    {
-                        rb.velocity = new Vector2(rightVelocity, (velocity * 0.7f));
-                    }
+                    // else
+                    // {
+                    //     rb.velocity = new Vector2(rightVelocity, (velocity * 0.7f));
+                    // }
+
                     break;
 
 
@@ -101,7 +105,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private IEnumerator Dash()
-    {
+    {   
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         canDash = false;
         isDashing = true;
         animator.SetBool("Attack", true);
@@ -111,10 +116,11 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 0f;
 
         yield return new WaitForSeconds(dashTime);
+        rb.constraints = RigidbodyConstraints2D.None;
         animator.SetBool("Attack", false);
         barAnimator.SetBool("hasDashed", true);
         isDashing = false;
-        rb.gravityScale = 0.8f;
+        rb.gravityScale = 1f;
 
         yield return new WaitForSeconds(dashCooldown);
         barAnimator.SetBool("hasDashed", false);

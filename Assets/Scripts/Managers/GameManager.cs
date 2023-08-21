@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public int Coins { get; set; }
-    public float Score { get; set; }
+    public float Score { get; set; } = 0;
     private int scoreMultiplayer = 2;
     private int newHighScore = 0;
     private float lastSpeedIncrease = 20;
@@ -31,12 +31,10 @@ public class GameManager : MonoBehaviour
     {
         playerMovementScript = FindObjectOfType<PlayerMovement>();
         // Debug.Log(Newtonsoft.Json.JsonConvert.SerializeObject(text));
-        gameData = SaveSystem.Load();
-        // scoreText.text = "X " + gameData.coinsTotal;
-        // scoreText.text = "Score: 0";
         highScoreText.text = "Best: " + gameData.highScore.ToString();
         this.scoreMultiplayer = 2;
         InvokeRepeating("increaseGameSpeed", intervalSpeedIncrease, intervalSpeedIncrease);
+        InvokeRepeating("spawnerGenerator", intervalSpeedIncrease * 1.5f, intervalSpeedIncrease * 1.5f);
     }
 
     void Update()
@@ -91,14 +89,12 @@ public class GameManager : MonoBehaviour
         playerMovementScript.rightVelocity += 1.5f;
         lastSpeedIncrease += intervalSpeedIncrease;
 
-        spawnerGenerator();
-
 
     }
 
     private void spawnerGenerator()
     {
-        float randTime = Random.Range(1, 5);
+        float randTime = Random.Range(3, 5);
         int rand = Random.Range(0, 2);
         if (spawnersList[rand].TryGetComponent<ObstacleGeneration>(out ObstacleGeneration obstacleGeneration))
         {
