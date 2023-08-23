@@ -2484,7 +2484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98203b1cf98445948ae817e5885d1814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestination: 0.05
+  timeToDestination: 2
 --- !u!114 &873023138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873023133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
@@ -5380,7 +5380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 873023133}
-  parallaxEffect: 0.1
+  parallaxEffect: 0
 --- !u!212 &1988497442
 SpriteRenderer:
   m_ObjectHideFlags: 0
