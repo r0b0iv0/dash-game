@@ -37,6 +37,7 @@ public class PlayerCollisions : MonoBehaviour
             soundManager.playCoinSound();
             Destroy(col.gameObject);
             gm.Score += 2;
+            gm.Coins += 1;
         }
         if (col.gameObject.tag == "UFO" || col.gameObject.tag == "Asteroid" || col.gameObject.tag == "Enemy")
         {

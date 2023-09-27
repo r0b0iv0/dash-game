@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private PlayerMovement playerMovementScript;
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI coinsText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private List<GameObject> spawnersList = new List<GameObject>();
@@ -40,8 +41,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         scoreText.text = System.Math.Ceiling(scoreIncrement()).ToString("N0");
+        coinsText.text = "X " + (gameData.coinsTotal + Coins).ToString();
     }
-
 
     public float scoreIncrement()
     {
@@ -67,7 +68,9 @@ public class GameManager : MonoBehaviour
         {
             this.gameData.highScore = newHighScore;
             highScoreText.text = "Best: " + gameData.highScore.ToString();
-        }
+        }        
+        this.gameData.coinsTotal += Coins;
+        Coins = 0;
         SaveSystem.Save(this.gameData);
     }
 
