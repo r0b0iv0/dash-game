@@ -15,10 +15,11 @@ public class GameManager : MonoBehaviour
     private float intervalSpeedIncrease = 20;
     private GameData gameData = new GameData();
     private PlayerMovement playerMovementScript;
+    public GameObject rubyCountParent;
     [SerializeField] private Camera cam;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI coinsText;
-    [SerializeField] private TextMeshProUGUI highScoreText;
+    [SerializeField] public TextMeshProUGUI highScoreText;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private List<GameObject> spawnersList = new List<GameObject>();
     [SerializeField] GameObject pauseButton;
@@ -27,10 +28,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         this.gameData = SaveSystem.Load();
+        
     }
     void Start()
     {
         playerMovementScript = FindObjectOfType<PlayerMovement>();
+        rubyCountParent = GameObject.Find("RubyCountParent");
         // Debug.Log(Newtonsoft.Json.JsonConvert.SerializeObject(text));
         highScoreText.text = "Best: " + gameData.highScore.ToString();
         this.scoreMultiplayer = 2;
@@ -50,6 +53,8 @@ public class GameManager : MonoBehaviour
         if (gameData.highScore < Score)
         {
             newHighScore = (int)System.Math.Ceiling(Score);
+            rubyCountParent.GetComponent<Animator>().SetBool("Move", true);
+            highScoreText.enabled = true;
         }
         return Score;
     }

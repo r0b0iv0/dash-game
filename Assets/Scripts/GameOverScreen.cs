@@ -18,6 +18,8 @@ public class GameOverScreen : MonoBehaviour
     public void PlayAgain()
     {   
         this.gameManager.ressetScore();
+        this.gameManager.highScoreText.enabled = false;
+        this.gameManager.rubyCountParent.GetComponent<Animator>().SetBool("Move", false);
         this.collisions.RessetPositions();
         this.playerMovement.ressetMovement();
         this.gameObject.SetActive(false);
