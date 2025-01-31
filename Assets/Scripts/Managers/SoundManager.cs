@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource;
     private AudioClip coinCollectSound;
 
-    [SerializeField] private AudioClip RubyCollectsound;
+    [SerializeField] private AudioClip RubyCollectSound;
     [SerializeField] private AudioClip attackSound;
     [SerializeField] private AudioClip exlplodeUfoSound;
 
@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
     }
 
     public void playCoinSound() {
-        audioSource.PlayOneShot(RubyCollectsound);
+        audioSource.PlayOneShot(RubyCollectSound);
     }
 
     public void playAttackSound() {
