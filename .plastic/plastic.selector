@@ -1,0 +1,4 @@
+repository "alien-game@GAVRA@cloud"
+  path "/"
+    br "/main"
+    co "/main"
